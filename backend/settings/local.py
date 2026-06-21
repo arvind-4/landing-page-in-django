@@ -1,32 +1,19 @@
-from decouple import config
+"""Local development settings."""
 
-from .base import *
+from backend.env_utils import get_env_as_bool, get_env_as_list, get_env_as_str
+from backend.settings.base import *
+from backend.settings.base import BASE_DIR
 
-SECRET_KEY = "secret_key"
+SECRET_KEY = get_env_as_str(key="DJANGO_SECRET_KEY")
 
-DEBUG = True
+DEBUG = get_env_as_bool(key="DJANGO_DEBUG")
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = get_env_as_list(key="DJANGO_ALLOWED_HOSTS")
 
-ADMIN_URL = "admin/"
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / "static",
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
+STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"

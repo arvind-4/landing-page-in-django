@@ -1,7 +1,8 @@
-"""backend URL Configuration
+"""backend URL Configuration.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
+
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -12,20 +13,18 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path
-from django.conf import settings
 
-from landing.views import HomeView
+"""
+
+from django.urls import path
 from django.views.generic import TemplateView
 
+from landing.views import HomeView
+
 urlpatterns = [
-    path(str(settings.ADMIN_URL), admin.site.urls),
-    path('', HomeView.as_view()),
-    path('404', TemplateView.as_view(template_name='404.html')),
-    path('*', TemplateView.as_view(template_name='404.html')),
+    path("", HomeView.as_view()),
+    path("*", TemplateView.as_view(template_name="404.html")),
 ]
 
-handler404 = 'landing.views.custom_404'
-handler500 = 'landing.views.custom_500'
+handler404 = "landing.views.custom_404"
+handler500 = "landing.views.custom_500"

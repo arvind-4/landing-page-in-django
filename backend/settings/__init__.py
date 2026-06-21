@@ -1,11 +1,13 @@
-from decouple import config
+"""Settings package."""
 
-DJANGO_LIVE = config('DJANGO_LIVE', cast=bool)
+from backend.env_utils import get_env_as_bool
 
-if DJANGO_LIVE:
-    print("Production settings loaded")
-    from .production import *
+DJANGO_LIVE = get_env_as_bool(key="DJANGO_LIVE")
+CI = get_env_as_bool(key="CI")
 
+if CI:
+    from backend.settings.tests import *
+elif DJANGO_LIVE:
+    from backend.settings.production import *
 else:
-    print("Development settings loaded")
-    from .local import *
+    from backend.settings.local import *

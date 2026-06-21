@@ -1,21 +1,22 @@
-from decouple import config
+"""Production settings."""
 
-from .base import *
+import os
 
-SECRET_KEY = config('DJANGO_SECRET_KEY', cast=str)
+from backend.settings.base import *
+from backend.settings.base import BASE_DIR
 
-DEBUG = config('DJANGO_DEBUG', cast=bool)
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
-ALLOWED_HOSTS = ['*']
+DEBUG = os.environ.get("DJANGO_DEBUG")
 
-ADMIN_URL = config('DJANGO_ADMIN_URL', cast=str)
+ALLOWED_HOSTS = ["*"]
 
-STATIC_URL = '/static/'
+ADMIN_URL = os.environ.get("DJANGO_ADMIN_URL")
+
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / "static",
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
-
-from backend.db.postgres_db import * # noqa
+STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"

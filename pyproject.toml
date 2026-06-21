@@ -1,0 +1,20 @@
+[project]
+name = "landing-page-in-django"
+version = "0.1.0"
+description = "A Simple landing page using django, bootstrap"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=3.2,<3.3",
+    "whitenoise>=6.12.0",
+]
+
+[dependency-groups]
+dev = [
+    "gunicorn>=26.0.0",
+    "honcho>=2.0.0",
+    "pyright>=1.1.410",
+    "ruff>=0.15.18",
+    "ty>=0.0.51",
+    "uvicorn>=0.49.0",
+]

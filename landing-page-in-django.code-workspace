@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "editor.fontSize": 24,
+    "files.exclude": {
+      "**/.git": false,
+      "**/.svn": false,
+      "**/.hg": false,
+      "**/.DS_Store": false,
+      "**/Thumbs.db": false,
+      "**/*.crswap": false,
+    },
+    "files.autoSave": "afterDelay",
+    "terminal.integrated.fontSize": 24,
+  },
+}

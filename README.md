@@ -1,4 +1,3 @@
-
 # Landing Page
 
 Make a Landing Page for your Business with Django and Postgres.
@@ -13,23 +12,23 @@ Make a Landing Page for your Business with Django and Postgres.
 - [Bootstrap](https://getbootstrap.com/) - Build fast, responsive sites with Bootstrap.
 - [Postgres](https://www.postgresql.org/) - The World's Most Advanced Open Source Relational Database.
 
-
 Deployed on [Vercel](https://vercel.com/). <br/>
 Click Here for [Live Preview.](https://landing-django.vercel.app/)
 
 ## Deploy Now:
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Arvind-4/Landing-Page-in-Django)
 
-## Getting Started: 
+## Getting Started:
 
-- Clone Repo 
+- Clone Repo
 
 ```bash
 cd /path/to/folder
 mkdir landing
 cd landing
 git clone https://github.com/Arvind-4/Landing-Page-in-Django.git .
-```  
+```
 
 - Create a Virtual Environment
 
@@ -49,7 +48,7 @@ pip install -r requirements.txt
 ```
 
 Add Your Environment variable to `.env`.
- Refer `.sample.env` file.
+Refer `.sample.env` file.
 
 - Make Migrations
 
@@ -68,7 +67,9 @@ python manage.py runserver localhost:8000
 Open [localhost:8000](http://localhost:8000/) in Browser.
 
 ## License
+
 This Project is [MIT Licensed](https://github.com/Arvind-4/Landing-Page-in-Django/blob/main/LICENSE).
 
 ## Change Log
+
 [Logs](https://github.com/Arvind-4/Landing-Page-in-Django/commits/main)

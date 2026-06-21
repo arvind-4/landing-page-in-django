@@ -2,12 +2,11 @@ name: Collect Static
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -16,27 +15,27 @@ jobs:
         python-version: [3.9]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Collect Static
-      env:
-        DJANGO_SECRET_KEY: bad-key
-        DJANGO_DEBUG: 1
-        DJANGO_LIVE: 0
-        DJANGO_ADMIN_URL: admin
-        DJANGO_PG_HOST: localhost
-        DJANGO_PG_DATABASE: mydb
-        DJANGO_PG_USER: root
-        DJANGO_PG_PASSWORD: root
-        DJANGO_SUPERUSER_EMAIL: admin@admin.com
-        DJANGO_SUPERUSER_USERNAME: admin
-        DJANGO_SUPERUSER_PASSWORD: admin1234
-      run: |
-        python manage.py collectstatic --noinput --clear
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Collect Static
+        env:
+          DJANGO_SECRET_KEY: bad-key
+          DJANGO_DEBUG: 1
+          DJANGO_LIVE: 0
+          DJANGO_ADMIN_URL: admin
+          DJANGO_PG_HOST: localhost
+          DJANGO_PG_DATABASE: mydb
+          DJANGO_PG_USER: root
+          DJANGO_PG_PASSWORD: root
+          DJANGO_SUPERUSER_EMAIL: admin@admin.com
+          DJANGO_SUPERUSER_USERNAME: admin
+          DJANGO_SUPERUSER_PASSWORD: admin1234
+        run: |
+          python manage.py collectstatic --noinput --clear
